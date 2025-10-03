@@ -61,7 +61,7 @@ export type LocaleContent = {
 
 export const contentByLocale: Record<Locale, LocaleContent> = {
   en: {
-    metaTitle: 'Home',
+    metaTitle: 'portfolio',
     metaDescription:
       'Portfolio site showcasing indie game development projects, art, and tooling.',
     htmlLang: 'en',
