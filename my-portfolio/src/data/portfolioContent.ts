@@ -10,7 +10,9 @@ type Project = {
   title: string;
   role: string;
   description: string;
-  href: string;
+  href?: string;
+  thumbnail?: string;
+  thumbnailAlt?: string;
 };
 
 type Tool = {
@@ -26,7 +28,7 @@ type Contribution = {
 
 type ContactLink = {
   title: string;
-  href: string;
+  href?: string;
   icon: ContactIconKey;
 };
 
@@ -61,26 +63,27 @@ export const contentByLocale: Record<Locale, LocaleContent> = {
   en: {
     metaTitle: 'Home',
     metaDescription:
-      'Personal portfolio site showcasing game development projects, tools, and experience.',
+      'Portfolio site showcasing indie game development projects, art, and tooling.',
     htmlLang: 'en',
     profile: {
-      name: 'Your Name',
+      name: '4423',
       tagline: 'Game Developer / Designer',
       summary:
-        "Crafting immersive experiences across systems, art, and tooling. Here's a snapshot of ongoing and recent work.",
+        'I create indie games end to end, moving between programming and art to build worlds with a distinct atmosphere. Here is a look at the projects I have been working on.',
     },
     contactLinks: [
-      { title: 'X (Twitter)', href: 'https://x.com/your-account', icon: 'x' },
-      { title: 'Discord', href: 'https://discord.gg/your-server-or-id', icon: 'discord' },
+      { title: 'X (Twitter)', href: 'https://x.com/MYosh4423', icon: 'x' },
+      { title: 'Discord', href: 'https://discord.gg/gpdhjVCM', icon: 'discord' },
     ],
     aboutParagraphs: [
-      'I build expressive game worlds with a focus on responsive systems, smart pipelines, and collaborative workflows.',
-      "Below you'll find my core strengths, the tools I rely on, and highlights from projects I've contributed to.",
+      'My core focus is Unity (C#) development, while Clip Studio and Aseprite let me create digital and pixel art tailored to each project. I also build workflow tools and prototype machine-learning utilities in Python, keeping programming and art tightly connected.',
+      'The sections below outline my key strengths, the tools I rely on, and the projects I have contributed to.',
     ],
     specialties: [
-      'System design for action-oriented gameplay loops',
-      'Level pacing, encounter scripting, and UX polish',
-      'Tech art prototyping to support rapid iteration',
+      'Game programming and systems design in Unity',
+      'UI design',
+      'Pixel art',
+      'Workflow automation and ML prototyping with Python',
     ],
     tools: [
       { name: 'Unity', note: 'Game engine', iconKey: 'unity' },
@@ -89,28 +92,30 @@ export const contentByLocale: Record<Locale, LocaleContent> = {
       { name: 'Aseprite', note: 'Pixel art', iconKey: 'aseprite' },
     ],
     contributions: [
-      { title: 'Project A', detail: 'Gameplay Programmer (2023)' },
-      { title: 'Project B', detail: 'Level Designer (2022)' },
-      { title: 'Project C', detail: 'Technical Artist (2021)' },
+      { title: '----', detail: 'UI programming support (2025)' },
     ],
     languages: ['C#', 'Python', 'C++'],
     programmingLanguagesNote:
-      'Add language badges here. Drop additional SVG icons into src/icons and update the icon field below when they are ready.',
+      'Primary languages I rely on in development.',
     projects: [
       {
-        title: 'Game Title 01',
-        role: 'Lead Systems / 2024',
+        title: 'Step On All Stars',
+        role: 'Systems design & game design / Aug 2024',
         description:
-          'Designed combat loops, implemented AI behaviors, and led playtest iteration for a fast-paced action prototype.',
-        href: '#',
+          'A rhythm-infused bullet-dodging action game about weaving through falling meteors and stomping stars arranged as constellations.',
+        href: 'https://myosh4423.itch.io/step-on-all-stars',
+        thumbnail: 'steponallstars_title.png',
+        thumbnailAlt: 'Step On All Stars thumbnail',
       },
-      {
-        title: 'Game Title 02',
-        role: 'Technical Artist / 2023',
-        description:
-          'Built shader-driven environment assets, established art-to-engine workflows, and optimized asset import pipelines.',
-        href: '#',
-      },
+      // {
+      //   title: 'Game Title 02',
+      //   role: 'Technical Artist / 2023',
+      //   description:
+      //     'Built shader-driven environment assets, established art-to-engine workflows, and optimized asset import pipelines.',
+      //   href: '/blog/long-title/',
+      //   thumbnail: 'coming-soon.png',
+      //   thumbnailAlt: 'Placeholder cover for Game Title 02',
+      // },
     ],
     sectionTitles: {
       projects: 'Projects',
@@ -126,23 +131,24 @@ export const contentByLocale: Record<Locale, LocaleContent> = {
     metaDescription: 'ゲーム開発の実績やツール、経験をまとめたポートフォリオサイトです。',
     htmlLang: 'ja',
     profile: {
-      name: 'あなたの名前',
+      name: '4423',
       tagline: 'ゲーム開発者 / デザイナー',
       summary:
-        'システム、アート、ツールの視点から没入感のある体験づくりを行っています。これまでの取り組みを紹介します。',
+        'インディーゲームを制作しています。プログラミングからアートまで自分で手がけ、世界観のある作品づくりを目指しています。これまでの取り組みをご紹介します。',
     },
     contactLinks: [
-      { title: 'X（旧Twitter）', href: 'https://x.com/your-account', icon: 'x' },
-      { title: 'Discord', href: 'https://discord.gg/your-server-or-id', icon: 'discord' },
+      { title: 'X（旧Twitter）', href: 'https://x.com/MYosh4423', icon: 'x' },
+      { title: 'Discord', href: 'https://discord.gg/gpdhjVCM', icon: 'discord' },
     ],
     aboutParagraphs: [
-      'アクション性の高いゲーム体験を支えるシステム構築と、チームで磨き上げる制作フローづくりを得意としています。',
+      'Unity（C#）を用いたゲーム開発に加え、Clip StudioやAsepriteを活用したデジタルアート・ドット絵制作も行っています。さらに、Pythonによる深層学習モデルの構築経験もあり、プログラミングとアートの両面からゲーム制作に取り組んでいます。',
       '下記では主な強み、使用ツール、参画したプロジェクトについて概要をまとめています。',
     ],
     specialties: [
-      'アクションゲーム向けゲームプレイシステム設計',
-      'レベル演出・イベントスクリプト・UI/UX調整',
-      '高速な検証を支えるテクニカルアートとツール開発',
+      'Unityによるゲームプログラミング・システム設計',
+      'UIデザイン',
+      'PixelArt',
+      'Pythonを利用した深層学習モデル開発'
     ],
     tools: [
       { name: 'Unity', note: 'ゲームエンジン', iconKey: 'unity' },
@@ -151,28 +157,30 @@ export const contentByLocale: Record<Locale, LocaleContent> = {
       { name: 'Aseprite', note: 'ドット絵制作', iconKey: 'aseprite' },
     ],
     contributions: [
-      { title: 'プロジェクトA', detail: 'ゲームプレイプログラマー（2023年）' },
-      { title: 'プロジェクトB', detail: 'レベルデザイナー（2022年）' },
-      { title: 'プロジェクトC', detail: 'テクニカルアーティスト（2021年）' },
+      { title: '----', detail: 'UIプログラムサポート / 2025年' },
     ],
     languages: ['C#', 'Python', 'C++'],
     programmingLanguagesNote:
-      '必要に応じて言語バッジを追加してください。src/icons に SVG を追加し、icon フィールドを更新すれば反映されます。',
+      '主に開発に利用している言語',
     projects: [
       {
-        title: 'ゲームタイトル01',
-        role: 'システムリード / 2024年',
+        title: 'Step On All Stars',
+        role: 'システム設計・デザイン / 2024年8月',
         description:
-          '高速なアクション試作を目指し、戦闘ロジックや敵AIの実装、プレイテストのリードを担当。',
-        href: '#',
+          '迫りくる隕石をよけながら、星座の形に配置される星々を踏みつける弾幕回避ゲーム',
+        href: 'https://myosh4423.itch.io/step-on-all-stars',
+        thumbnail: 'steponallstars_title.png',
+        thumbnailAlt: 'steponallstars_thumbnail',
       },
-      {
-        title: 'ゲームタイトル02',
-        role: 'テクニカルアーティスト / 2023年',
-        description:
-          'シェーダーによる背景演出、アートからエンジンへの制作パイプライン整備、アセット最適化を担当。',
-        href: '#',
-      },
+      // {
+      //   title: 'ゲームタイトル02',
+      //   role: 'テクニカルアーティスト / 2023年',
+      //   description:
+      //     'シェーダーによる背景演出、アートからエンジンへの制作パイプライン整備、アセット最適化を担当。',
+      //   href: '/blog/missing-content/',
+      //   thumbnail: 'coming-soon.png',
+      //   thumbnailAlt: 'Game Title 02のプレースホルダー画像',
+      // },
     ],
     sectionTitles: {
       projects: '制作実績',
@@ -184,3 +192,14 @@ export const contentByLocale: Record<Locale, LocaleContent> = {
     },
   },
 };
+
+
+
+
+
+
+
+
+
+
+

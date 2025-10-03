@@ -1,29 +1,36 @@
----
+﻿---
 import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 import { cn } from '@/utils'
 
 const {
-	as: Tag = 'a',
+	as,
 	class: className,
 	href,
 	heading,
 	subheading,
 	imagePath,
-	altText
+	altText,
+	target,
+	rel
 } = Astro.props
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
+
+const Tag = (as ?? (href ? 'a' : 'div')) as any
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif,webp}')
 if (!images[imagePath])
-	throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`)
+	throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif,webp}"`)
 ---
 
 <Tag
 	class={cn(
 		className,
-		'flex flex-col gap-y-3 rounded-2xl border border-border bg-primary-foreground ',
-		href && 'transition-all hover:border-foreground/25 hover:shadow-sm'
+		'flex flex-col gap-y-3 rounded-2xl border border-border bg-primary-foreground',
+		href && 'transition-all hover:border-foreground/25 hover:shadow-sm cursor-pointer'
 	)}
 	href={href}
+	target={target}
+	rel={rel}
 >
 	<Image
 		src={images[imagePath]()}
